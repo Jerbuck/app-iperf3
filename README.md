@@ -3,7 +3,7 @@
 
 ### Run 
 
-`docker run -it --rm -p 5201:5201 networkstatic/iperf3 --help`
+`docker run -it --rm -p 5201:5201 iperf3 --help`
 
 ### Usage
 
@@ -71,7 +71,7 @@ iperf Done.
 Or you can do something fancier in a one liner like so (docker ps -ql returns the CID e.g. container ID of the last container started which would be the server we want in this case)
 
 ```
-docker run  -it --rm networkstatic/iperf3 -c $(docker inspect --format "{{ .NetworkSettings.IPAddress }}" $(docker ps -ql))
+docker run  -it --rm iperf3 -c $(docker inspect --format "{{ .NetworkSettings.IPAddress }}" $(docker ps -ql))
 Connecting to host 172.17.0.193, port 5201
 [  4] local 172.17.0.194 port 60922 connected to 172.17.0.193 port 5201
 [ ID] Interval           Transfer     Bandwidth       Retr  Cwnd
