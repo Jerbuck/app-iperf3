@@ -6,8 +6,10 @@
 Navigate to the cloned repository directory and build the docker image:
 
 ```
-docker build -t app-iperf3
+docker build -t app-iperf3 .
 ```
+
+Be sure to include the "." after the image name.
 
 ### Verify
 
