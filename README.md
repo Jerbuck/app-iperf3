@@ -6,7 +6,7 @@
 Navigate to the cloned repository directory and build the docker image:
 
 ```
-docker build -t iperf3
+docker build -t app-iperf3
 ```
 
 ### Verify
@@ -16,7 +16,7 @@ To verify the image has been successfully built:
 ```
 jerbuck$ docker images
 REPOSITORY   TAG       IMAGE ID       CREATED          SIZE
-iperf3       latest    3332c0686934   18 minutes ago   120MB
+app-iperf3   latest    3332c0686934   18 minutes ago   120MB
 
 ```
 
@@ -25,7 +25,7 @@ iperf3       latest    3332c0686934   18 minutes ago   120MB
 You can then export the docker image for installation onto Catalyst 9000 series using:
 
 ```
-docker save -o iperf3.tar iperf3
+docker save -o app-iperf3.tar iperf3
 
 jerbuck$ ls -ail
 total 248728
@@ -34,13 +34,13 @@ total 248728
 54384972 drwxr-xr-x  15 jerbuck  staff        480 Jul 16 09:20 .git
 54386053 -rw-r--r--   1 jerbuck  staff        750 Jul 16 09:17 Dockerfile
 54414249 -rw-r--r--@  1 jerbuck  staff       4361 Jul 16 09:44 README.md
-54414692 -rw-------   1 jerbuck  staff  125520384 Jul 16 09:47 iperf3.tar
+54414692 -rw-------   1 jerbuck  staff  125520384 Jul 16 09:47 app-iperf3.tar
 ```
 
 ### Run 
 
 ```
-docker run -it --rm -p 5201:5201 iperf3 --help
+docker run -it --rm -p 5201:5201 app-iperf3 --help
 ```
 
 ### Usage
@@ -52,7 +52,7 @@ To test bandwidth between two containers, start a server (listener) and point a 
 Start a listener service on port 5201 and name the container "iperf3-server":
 
 ```
-docker run  -it --rm --name=iperf3-server -p 5201:5201 iperf3 -s
+docker run  -it --rm --name=iperf3-server -p 5201:5201 app-iperf3 -s
 ```
 
 That returns an iperf3 process bound to a socket waiting for new connections:
@@ -79,7 +79,7 @@ Run a client container pointing at the server service IP address.
 *Note* if you are new to Docker, the  `--rm` flag will destroy the container after the test runs. I also left out explicitly naming the container on the client side since I don't need its IP address. I typically explicitly name containers for organization and to maintain a consistent pattern.
 
 ```
-docker run  -it --rm iperf3 -c 172.17.0.163
+docker run  -it --rm app-iperf3 -c 172.17.0.163
 ```
 
 And the output is the following:
@@ -109,7 +109,7 @@ iperf Done.
 Or you can do something fancier in a one liner like so (docker ps -ql returns the CID e.g. container ID of the last container started which would be the server we want in this case)
 
 ```
-docker run  -it --rm iperf3 -c $(docker inspect --format "{{ .NetworkSettings.IPAddress }}" $(docker ps -ql))
+docker run  -it --rm app-iperf3 -c $(docker inspect --format "{{ .NetworkSettings.IPAddress }}" $(docker ps -ql))
 Connecting to host 172.17.0.193, port 5201
 [  4] local 172.17.0.194 port 60922 connected to 172.17.0.193 port 5201
 [ ID] Interval           Transfer     Bandwidth       Retr  Cwnd
