@@ -1,5 +1,5 @@
-# iperf3
-###  IPerf3 Docker Build for Network Performance and Bandwidth Testing
+# app-iperf3
+###  Iperf3 Docker Build for Network Performance and Bandwidth Testing
 
 ### Build
 
@@ -25,7 +25,7 @@ app-iperf3   latest    3332c0686934   18 minutes ago   120MB
 You can then export the docker image for installation onto Catalyst 9000 series using:
 
 ```
-docker save -o app-iperf3.tar iperf3
+docker save -o app-iperf3.tar app-iperf3
 
 jerbuck$ ls -ail
 total 248728
