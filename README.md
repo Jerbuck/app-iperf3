@@ -1,9 +1,49 @@
 # iperf3
 ###  IPerf3 Docker Build for Network Performance and Bandwidth Testing
 
+### Build
+
+Navigate to the cloned repository directory and build the docker image:
+
+```
+docker build -t iperf3
+```
+
+### Verify
+
+To verify the image has been successfully built:
+
+```
+jerbuck$ docker images
+REPOSITORY   TAG       IMAGE ID       CREATED          SIZE
+iperf3       latest    3332c0686934   18 minutes ago   120MB
+
+```
+
+### Export
+
+You can then export the docker image for installation onto Catalyst 9000 series using:
+
+```
+docker save -o iperf3.tar iperf3
+
+jerbuck$ ls -ail
+total 248728
+54384971 drwxr-xr-x   6 jerbuck  staff        192 Jul 16 09:47 .
+54386477 drwxr-xr-x   3 jerbuck  staff         96 Jul 16 09:20 ..
+54384972 drwxr-xr-x  15 jerbuck  staff        480 Jul 16 09:20 .git
+54386053 -rw-r--r--   1 jerbuck  staff        750 Jul 16 09:17 Dockerfile
+54414249 -rw-r--r--@  1 jerbuck  staff       4361 Jul 16 09:44 README.md
+54414692 -rw-------   1 jerbuck  staff  125520384 Jul 16 09:47 iperf3.tar
+```
+
+The .tar image file is also included in this repository for expediency.
+
 ### Run 
 
-`docker run -it --rm -p 5201:5201 iperf3 --help`
+```
+docker run -it --rm -p 5201:5201 iperf3 --help
+```
 
 ### Usage
 
