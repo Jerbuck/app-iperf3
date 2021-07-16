@@ -1,8 +1,6 @@
 # iperf3
 ###  IPerf3 Docker Build for Network Performance and Bandwidth Testing
 
-Image on Docker Hub [hub.docker.com/r/networkstatic/iperf3/](https://hub.docker.com/r/networkstatic/iperf3/)
-
 ### Run 
 
 `docker run -it --rm -p 5201:5201 networkstatic/iperf3 --help`
@@ -16,7 +14,7 @@ To test bandwidth between two containers, start a server (listener) and point a 
 Start a listener service on port 5201 and name the container "iperf3-server":
 
 ```
-docker run  -it --rm --name=iperf3-server -p 5201:5201 networkstatic/iperf3 -s
+docker run  -it --rm --name=iperf3-server -p 5201:5201 iperf3 -s
 ```
 
 That returns an iperf3 process bound to a socket waiting for new connections:
@@ -43,7 +41,7 @@ Run a client container pointing at the server service IP address.
 *Note* if you are new to Docker, the  `--rm` flag will destroy the container after the test runs. I also left out explicitly naming the container on the client side since I don't need its IP address. I typically explicitly name containers for organization and to maintain a consistent pattern.
 
 ```
-docker run  -it --rm networkstatic/iperf3 -c 172.17.0.163
+docker run  -it --rm iperf3 -c 172.17.0.163
 ```
 
 And the output is the following:
@@ -96,3 +94,5 @@ iperf Done.
 ```
 
 Thanks to ESNET for re-rolling iperf from the ground up. It is a killer piece of software.
+
+Customized fork from nerdalert/iperf3.
