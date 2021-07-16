@@ -37,8 +37,6 @@ total 248728
 54414692 -rw-------   1 jerbuck  staff  125520384 Jul 16 09:47 iperf3.tar
 ```
 
-The .tar image file is also included in this repository for expediency.
-
 ### Run 
 
 ```
