@@ -127,7 +127,8 @@ First, get the IP address of the new server container you just started:
 
 ```
 docker inspect --format "{{ .NetworkSettings.IPAddress }}" app-iperf3-server
-(Returned) 172.17.0.163
+!
+! (Returned) 172.17.0.163
 ```
 
 Next, initiate a client connection from another container to measure the bandwidth between the two endpoints.
