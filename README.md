@@ -1,5 +1,5 @@
 # app-iperf3
-###  Catalyst 9000 Series Iperf3 Docker Build for Iperf
+###  Catalyst 9000 Series Docker Build for Iperf
 
 This Readme covers how to build a custom Iperf Docker app for use on Catalyst 9000 Series AppHosting Framework.
 
