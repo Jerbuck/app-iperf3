@@ -105,6 +105,8 @@ app-hosting uninstall appid app-iperf3
 
 To test bandwidth between two containers, start a server (listener) and point a client container (initiator) at the server.
 
+For reference the Iperf3 documentation can be found [here](https://iperf.fr/iperf-doc.php#3doc).
+
 #### app-iperf3 Server
 
 Start a listener service on port 5201 and name the container "app-iperf3-server":
