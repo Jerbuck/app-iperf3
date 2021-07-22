@@ -49,6 +49,30 @@ total 248728
 
 If you are unable to build and export this container, you can download the .tar file directly [here](https://cisco.box.com/s/804kbwz7vlupot53m77vvrs6h192i992).
 
+### Licensing
+
+Ensure that the switch is licensed for DNA-Advantage
+
+```
+license boot level network-advantage addon dna-advantage
+```
+
+
+### Connecting app to Catalyst 9000 Series
+```
+! Configured on switch
+!
+app-hosting appid app-iperf3
+app-vnic AppGigEthernet vlan-access
+vlan 100 guest-interface eth0 guest-ipaddress 172.17.0.2 netmask 255.255.255.0
+!
+!
+int AppGigEthernet 1/0/1
+  switchport mode allowed vlan 100 
+  switchport mode trunk
+!
+```
+
 ### Installing app on Catalyst 9000 Series
 
 ```
