@@ -1,5 +1,9 @@
 # app-iperf3
-###  app-iperf3 Docker Build for Network Performance and Bandwidth Testing
+###  Catalyst 9000 Series Iperf3 Docker Build for Iperf
+
+This Readme covers how to build a custom Iperf Docker app for use on Catalyst 9000 Series AppHosting Framework.
+
+--
 
 ### Build
 
@@ -31,7 +35,7 @@ docker run -it --rm -p 5201:5201 app-iperf3 --help
 You can then export the docker image for installation onto Catalyst 9000 series using:
 
 ```
-docker save -o app-app-iperf3.tar app-iperf3
+docker save -o app-iperf3.tar app-iperf3
 
 jerbuck$ ls -ail
 total 248728
@@ -43,11 +47,59 @@ total 248728
 54414692 -rw-------   1 jerbuck  staff  125520384 Jul 16 09:47 app-iperf3.tar
 ```
 
-### Installation onto Catalyst 9000 Series
+If you are unable to build and export this container, you can download the .tar file directly [here](https://cisco.box.com/s/804kbwz7vlupot53m77vvrs6h192i992).
+
+### Installing app on Catalyst 9000 Series
 
 ```
-app-hosting install appid
+! Copy the image onto the switch usbflash1 or SSD using SCP, FTP, TFTP, etc.
+!
+app-hosting install appid app-iperf3 package usbflash1:app-iperf3.tar
+!
 ```
+
+### Activating app on Catalyst 9000 Series
+
+```
+!
+app-hosting activate appid app-iperf3
+!
+```
+
+### Starting app on Catalyst 9000 Series
+
+```
+!
+app-hosting start appid app-iperf3
+!
+```
+
+### Stopping app on Catalyst 9000 Series
+
+```
+!
+app-hosting stop appid app-iperf3
+!
+```
+
+### Deactivating app on Catalyst 9000 Series
+
+```
+!
+app-hosting deactivate appid app-iperf3
+!
+```
+
+### Uninstalling app on Catalyst 9000 Series
+
+```
+!
+app-hosting uninstall appid app-iperf3
+!
+```
+<br>
+--
+<br>
 
 ### Usage
 
