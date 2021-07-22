@@ -1,15 +1,13 @@
 # app-iperf3
-###  Iperf3 Docker Build for Network Performance and Bandwidth Testing
+###  app-iperf3 Docker Build for Network Performance and Bandwidth Testing
 
 ### Build
 
 Navigate to the cloned repository directory and build the docker image:
 
 ```
-docker build -t app-iperf3 .
+docker build -t app-iperf3
 ```
-
-Be sure to include the "." after the image name.
 
 ### Verify
 
@@ -18,8 +16,14 @@ To verify the image has been successfully built:
 ```
 jerbuck$ docker images
 REPOSITORY   TAG       IMAGE ID       CREATED          SIZE
-app-iperf3   latest    3332c0686934   18 minutes ago   120MB
+app-iperf3       latest    3332c0686934   18 minutes ago   120MB
 
+```
+
+### Run 
+
+```
+docker run -it --rm -p 5201:5201 app-iperf3 --help
 ```
 
 ### Export
@@ -27,7 +31,7 @@ app-iperf3   latest    3332c0686934   18 minutes ago   120MB
 You can then export the docker image for installation onto Catalyst 9000 series using:
 
 ```
-docker save -o app-iperf3.tar app-iperf3
+docker save -o app-app-iperf3.tar app-iperf3
 
 jerbuck$ ls -ail
 total 248728
@@ -39,25 +43,25 @@ total 248728
 54414692 -rw-------   1 jerbuck  staff  125520384 Jul 16 09:47 app-iperf3.tar
 ```
 
-### Run 
+### Installation onto Catalyst 9000 Series
 
 ```
-docker run -it --rm -p 5201:5201 app-iperf3 --help
+app-hosting install appid
 ```
 
 ### Usage
 
 To test bandwidth between two containers, start a server (listener) and point a client container (initiator) at the server.
 
-#### Iperf3 Server
+#### app-iperf3 Server
 
-Start a listener service on port 5201 and name the container "iperf3-server":
+Start a listener service on port 5201 and name the container "app-iperf3-server":
 
 ```
-docker run  -it --rm --name=iperf3-server -p 5201:5201 app-iperf3 -s
+docker run  -it --rm --name=app-iperf3-server -p 5201:5201 app-iperf3 -s
 ```
 
-That returns an iperf3 process bound to a socket waiting for new connections:
+That returns an app-iperf3 process bound to a socket waiting for new connections:
 
 ```
 -----------------------------------------------------------
@@ -65,12 +69,12 @@ Server listening on 5201
 -----------------------------------------------------------
 ```
 
-#### Iperf3 Client Side
+#### app-iperf3 Client Side
 
 First, get the IP address of the new server container you just started:
 
 ```
-docker inspect --format "{{ .NetworkSettings.IPAddress }}" iperf3-server
+docker inspect --format "{{ .NetworkSettings.IPAddress }}" app-iperf3-server
 (Returned) 172.17.0.163
 ```
 
@@ -135,4 +139,4 @@ iperf Done.
 
 Thanks to ESNET for re-rolling iperf from the ground up. It is a killer piece of software.
 
-Customized fork from nerdalert/iperf3.
+Customized fork from nerdalert/app-iperf3.
