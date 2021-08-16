@@ -10,7 +10,7 @@ This Readme covers how to build a custom Iperf Docker app for use on Catalyst 90
 Navigate to the cloned repository directory and build the docker image:
 
 ```
-docker build -t app-iperf3
+docker build -t app-iperf3 .
 ```
 
 ### Verify
@@ -47,7 +47,7 @@ total 248728
 54414692 -rw-------   1 jerbuck  staff  125520384 Jul 16 09:47 app-iperf3.tar
 ```
 
-If you are unable to build and export this container, you can download the .tar file directly [here](https://cisco.box.com/s/804kbwz7vlupot53m77vvrs6h192i992).
+If you are unable to build and export this container, you can download the .tar file directly [here](https://cisco.box.com/s/lvkai5487340c7efpvm4oq8sy2i7pr5b).
 
 ### Licensing
 
