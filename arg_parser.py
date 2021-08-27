@@ -29,7 +29,6 @@ class ArgParser:
             self._call_process(args)
         except KeyboardInterrupt:
             self._clean_up()
-
         self.run()
 
 if __name__=="__main__":

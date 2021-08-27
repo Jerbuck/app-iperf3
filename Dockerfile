@@ -17,7 +17,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy python scripts for application
-ADD iperf3_args.py /app/iperf3_args.py
+ADD arg_parser.py /app/arg_parser.py
 
 # Expose the default iperf3 server port
 EXPOSE 5201
@@ -25,5 +25,5 @@ EXPOSE 5201
 # entrypoint allows you to pass your arguments to the container at runtime
 # very similar to a binary you would run. For example, in the following
 # docker run -it <IMAGE> --help' is like running 'iperf3 --help'
-CMD ["/app/iperf3_args.py"]
+CMD ["/app/arg_parser.py"]
 ENTRYPOINT ["python3"]
