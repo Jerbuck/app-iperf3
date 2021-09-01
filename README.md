@@ -87,7 +87,7 @@ int AppGigEthernet 1/0/1
 ```
 ! Copy the image onto the switch usbflash1 or SSD using SCP, FTP, TFTP, etc.
 !
-app-hosting install appid iperf package usbflash1:app-iperf3.tar
+switch# app-hosting install appid iperf package usbflash1:app-iperf3.tar
 !
 ```
 
@@ -95,7 +95,7 @@ app-hosting install appid iperf package usbflash1:app-iperf3.tar
 
 ```
 !
-app-hosting activate appid iperf
+switch# app-hosting activate appid iperf
 !
 ```
 
@@ -103,7 +103,7 @@ app-hosting activate appid iperf
 
 ```
 !
-app-hosting start appid iperf
+switch# app-hosting start appid iperf
 !
 ```
 
@@ -111,7 +111,7 @@ app-hosting start appid iperf
 
 ```
 !
-app-hosting stop appid iperf
+switch# app-hosting stop appid iperf
 !
 ```
 
@@ -119,7 +119,7 @@ app-hosting stop appid iperf
 
 ```
 !
-app-hosting deactivate appid iperf
+switch# app-hosting deactivate appid iperf
 !
 ```
 
@@ -127,7 +127,7 @@ app-hosting deactivate appid iperf
 
 ```
 !
-app-hosting uninstall appid iperf
+switch# app-hosting uninstall appid iperf
 !
 ```
 <br>
