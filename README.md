@@ -62,7 +62,8 @@ license boot level network-advantage addon dna-advantage
 !
 app-hosting appid iperf
   app-vnic AppGigEthernet trunk
-   vlan 100 guest-interface 0 guest-ipaddress 172.17.0.2 netmask 255.255.255.0
+   vlan 100 guest-interface 0 
+   guest-ipaddress 172.17.0.2 netmask 255.255.255.0
    app-gateway 172.17.0.1 guest-intereface 0
 !
 !
