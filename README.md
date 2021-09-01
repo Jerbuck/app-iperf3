@@ -64,7 +64,7 @@ app-hosting appid iperf
   app-vnic AppGigEthernet trunk
    vlan 100 guest-interface 0 
    guest-ipaddress 172.17.0.2 netmask 255.255.255.0
-   app-gateway 172.17.0.1 guest-intereface 0
+  app-default-gateway 172.17.0.1 guest-intereface 0
 !
 !
 int AppGigEthernet 1/0/1
