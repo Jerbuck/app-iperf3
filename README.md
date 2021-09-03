@@ -143,7 +143,28 @@ iperf3 -c 127.0.0.1
 Once you have deployed the container on multiple switches, verify you have ip reachability. Once you've verified reachability you can run bandwidth tests as follows:
 
 ```
-iperf3 -c 192.168.10.2
+/ # iperf3 -c 192.168.10.2
+Connecting to host 192.168.10.2, port 5201
+[  5] local 192.168.20.2 port 52286 connected to 192.168.10.2 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-1.00   sec   115 MBytes   961 Mbits/sec    0   1.60 MBytes       
+[  5]   1.00-2.00   sec   112 MBytes   944 Mbits/sec    0   1.60 MBytes       
+[  5]   2.00-3.00   sec   111 MBytes   933 Mbits/sec   30   1.60 MBytes       
+[  5]   3.00-4.00   sec   112 MBytes   944 Mbits/sec   11   1.60 MBytes       
+[  5]   4.00-5.00   sec   111 MBytes   933 Mbits/sec  841   1.60 MBytes       
+[  5]   5.00-6.00   sec   111 MBytes   933 Mbits/sec    0   1.60 MBytes       
+[  5]   6.00-7.00   sec   112 MBytes   944 Mbits/sec   22   1.60 MBytes       
+[  5]   7.00-8.00   sec   111 MBytes   933 Mbits/sec  296   1.60 MBytes       
+[  5]   8.00-9.00   sec   111 MBytes   933 Mbits/sec    7   1.60 MBytes       
+[  5]   9.00-10.00  sec   112 MBytes   944 Mbits/sec  179   1.60 MBytes       
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-10.00  sec  1.09 GBytes   940 Mbits/sec  1386             sender
+[  5]   0.00-10.05  sec  1.09 GBytes   934 Mbits/sec                  receiver
+
+iperf Done.
+/ # 
+
 ```
 
 Iperf is very capable, there are many options in how you run tests, these can be found [here](https://iperf.fr/iperf-doc.php#3doc).
