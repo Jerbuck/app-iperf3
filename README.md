@@ -35,7 +35,7 @@ docker run -it --rm -p 5201:5201 app-iperf3
 You can then export the docker image for installation onto Catalyst 9000 series using:
 
 ```
-docker save -o app-iperf3.tar app-iperf3
+docker save app-iperf3 -o app-iperf3.tar
 
 jerbuck$ ls -ail
 total 248728
@@ -61,10 +61,12 @@ license boot level network-advantage addon dna-advantage
 ! Configured on switch
 !
 app-hosting appid iperf
-  app-vnic AppGigEthernet trunk
-   vlan 100 guest-interface 0 
-   guest-ipaddress 172.17.0.2 netmask 255.255.255.0
-  app-default-gateway 172.17.0.1 guest-intereface 0
+ app-vnic AppGigabitEthernet trunk
+  vlan 100 guest-interface 0
+   guest-ipaddress 192.168.10.2 netmask 255.255.255.0
+ app-default-gateway 192.168.10.1 guest-interface 0
+ app-resource docker
+  run-opts 1 "--restart=unless-stopped -p 5201:5201/tcp -p 5201:5201/udp"
 !
 !
 int AppGigEthernet 1/0/1
@@ -134,13 +136,20 @@ switch# app-hosting uninstall appid iperf
 --
 <br>
 
-### Docker Usage
-
-**Add this**
-
 ### Catalyst 9000 Usage
 
-**Add this**
+When you start the container a server will be started by default. You can test then iperf3 locally over the loopback by using:
+```
+iperf3 -c 127.0.0.1
+```
+
+Once you have deployed the container on multiple switches, verify you have ip reachability. Once you've verified reachability you can run bandwidth tests as follows:
+
+```
+iperf3 -c 192.168.10.2
+```
+
+Iperf is very capable, there are many options in how you run tests, these can be found [here](https://iperf.fr/iperf-doc.php#3doc).
 
 
-Customized fork from nerdalert/app-iperf3.
+Customized fork from nerdalert/app-iperf3 and michellabbe/docker-iperf3.
