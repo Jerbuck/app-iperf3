@@ -132,9 +132,6 @@ switch# app-hosting deactivate appid iperf
 switch# app-hosting uninstall appid iperf
 !
 ```
-<br>
---
-<br>
 
 ### Catalyst 9000 Usage
 
