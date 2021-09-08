@@ -11,14 +11,13 @@ FROM alpine:latest
 MAINTAINER Jeremy Buck <jerbuck@cisco.com>
 
 # Install binary and remove cache
-RUN apk add --no-cache iperf3 \
-  && apk add --no-cache python3
+RUN apk add --no-cache iperf3
 
 # Expose the default iperf3 server port
-EXPOSE 5201
+EXPOSE 5201-5211
 
 # entrypoint allows you to pass your arguments to the container at runtime
 # very similar to a binary you would run. For example, in the following
 # docker run -it <IMAGE> --help' is like running 'iperf3 --help'
-# CMD ["-s"]
+CMD ["-s"]
 ENTRYPOINT ["iperf3"]

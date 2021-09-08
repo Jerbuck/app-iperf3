@@ -135,8 +135,9 @@ switch# app-hosting uninstall appid iperf
 
 ### Catalyst 9000 Usage
 
-When you start the container a server will be started by default. You can test then iperf3 locally over the loopback by using:
+When you start a container it will launch a server by default. You can test this by connecting to it over the loopback.
 ```
+switch# app-hostings connect appid iperf session
 iperf3 -c 127.0.0.1
 ```
 
@@ -166,6 +167,8 @@ iperf Done.
 / # 
 
 ```
+
+This cannot be used to test multicast as Docker does not support multicast natively without additional complexities.
 
 Iperf is very capable, there are many options in how you run tests, these can be found [here](https://iperf.fr/iperf-doc.php#3doc).
 
